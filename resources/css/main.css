@@ -1,0 +1,17 @@
+.banner-logo-img{
+	
+	width: 64px;
+	height: 64px;
+}
+
+.max-container{
+	
+	max-width: 1200px;
+}
+
+.inner-container{
+	
+	max-width: 1000px;
+	margin: 20px auto 0px auto;
+
+}

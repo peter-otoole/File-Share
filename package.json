@@ -1,0 +1,9 @@
+{
+   "name": "Local-Media-Share",
+   "description": "Streaming and Downloading files through a Web UI",
+   "version": "0.0.1",
+   "dependencies": {
+      "express": "3.x",
+	  "validator": "3.2.1"
+   }
+}
