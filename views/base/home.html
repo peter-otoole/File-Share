@@ -16,30 +16,80 @@
 	
 	<body>
 	
-		<div class="container max-container">
+		<div class="container max-container">	
 			<div class="header">
 				<ul class="nav nav-pills pull-right">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">View</a></li>
-					<li><a href="#">Upload</a></li>
+					<li class="active"><a class="nav-buttons">Home</a></li>
+					<li><a class="nav-buttons">View</a></li>
+					<li><a class="nav-buttons">Upload</a></li>
 				</ul>
 				<h3 class="text-muted">
-					<img class="banner-logo-img" src="/resources/img/big-logo.png">
-					Private File Share
+					<div id="banner-reload-elements">
+						<img class="banner-logo-img" src="/resources/img/big-logo.png">
+						Private File Share
+					</div>
 				</h3>
 			</div>
+			<div class="line-separator"></div>
 			
-			<div class="inner-container jumbotron">
-				<h1>Welcome</h1>
-				<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-				<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+			<div class="main-content-container">
+				<div class="inner-container jumbotron">
+					<h2 class="centre-text">Peter's File Share</h1>
+					<div class="separator"></div>
+					<p class="text-muted centre-text">Welcome to the share centre, you can stream, download and upload files to this server.</p>
+					<div class="separator"></div>
+					<p class="text-muted centre-text">Would you like to watch a short video demonstrating the use of this site?</p>
+					<div class="home-video-container">
+						<div class="home-video">
+							<iframe width="560" height="315" src="//www.youtube.com/embed/JTEWlSTQ1RI" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
 			</div>
 			
+			<div class="line-separator"></div>
 			<div class="footer">
-				<p>© Peter O'Toole 2014</p>
+				<p class="right-text" >Copyright Peter O'Toole 2014</p>
 			</div>
-		  
 		</div>
-	
+		
+		<div class="res">
+			
+			<span id="home-content">
+				<div class="inner-container jumbotron">
+					<h2 class="centre-text">Peter's File Share</h1>
+					<div class="separator"></div>
+					<p class="text-muted centre-text">Welcome to the share centre, you can stream, download and upload files to this server.</p>
+					<div class="separator"></div>
+					<p class="text-muted centre-text">Would you like to watch a short video demonstrating the use of this site?</p>
+					<div class="home-video-container">
+						<div class="home-video">
+							<iframe width="560" height="315" src="//www.youtube.com/embed/JTEWlSTQ1RI" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+			</span>
+			
+			<span id="view-content">
+				<div class="view-content-container row">
+					
+					<div class="col-md-4">
+						<ul class="nav nav-pills pull-right">
+							<li class="active"><a class="nav-buttons">Music</a></li>
+							<li><a class="nav-buttons">Films</a></li>
+							<li><a class="nav-buttons">TV</a></li>
+						</ul>
+					</div>
+					
+					<div class="col-md-8">
+					
+					</div>					
+				</div>
+			
+			</span>
+			
+			<span id="upload-content"></span>
+			
+		</div>
 	</body>
 </html>
