@@ -1,6 +1,3 @@
-var log = collection.logger("common.requestDispatcher");
-
-
 var collection = {
 	
 	sessionKey: "",
@@ -20,7 +17,7 @@ var collection = {
 	
 	requestDispatcher: function(reqSettings, callback){
 		
-		log.info("Out going request with options: %j", reqSettings);
+		cLog.info("Out going request with options: %j", reqSettings);
 		
 		if( reqSettings ){
 		
@@ -30,11 +27,13 @@ var collection = {
 					url: reqSettings.path,
 					type: reqSettings.method,
 					data: {	data: reqSettings.data },
-					headers: { Authorization: sessionKey },
+					headers: { Authorization: collection.sessionKey },
 					dataType: "JSON",
 					async: reqSettings.async,
-					success: function (data) {
-						callback(false, data, "Got response from POST.")
+					success: function (data, code) {
+					
+						cLog.info("Got response from server. Response is: %j", data);
+						callback(false, {results: data, code: code}, "Got response from POST.")
 					}
 				});
 				
@@ -43,11 +42,13 @@ var collection = {
 				$.ajax({
 					url: reqSettings.path,
 					type: reqSettings.method,
-					headers: { Authorization: sessionKey },
+					headers: { Authorization: collection.sessionKey },
 					dataType: "JSON",
 					async: reqSettings.async,
-					success: function (data) {
-						callback(false, data, "Got response from GET.")
+					success: function (data, code) {
+						
+						cLog.info("Got response from server. Response is: %j", data);
+						callback(false, {results: data, code: code}, "Got response from GET.")
 					}
 				});
 				
@@ -78,7 +79,10 @@ var collection = {
 
 		return record;
 	}
-}	
+};
+
+var cLog = collection.logger("common.requestDispatcher");
+
 	
 	
 	
