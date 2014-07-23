@@ -6,12 +6,25 @@ $(document).ready(function(){
 		location = "/";
 	});
 	
+	$( ".main-content-container" ).load( "/html/get-configuration-page", function() {
+		
+		
+		
+	});
+
+});
+
+
+var loadSignInPage = function(){
+	
+	var log = collection.logger("main.loadSignInPage");
+	
 	log.info("Getting Sign In HTML from server.");
 	$( ".main-content-container" ).load( "/html/get-sign-in-page", function() {
 	
 		var settings = collection.requstSettings;
 		
-		settings.path = "/get-basic-server-data";
+		settings.path = "/json/get-basic-server-data";
 		settings.method = collection.GET;
 		settings.data = "";
 		settings.async = true;
@@ -26,7 +39,7 @@ $(document).ready(function(){
 			}else{
 				if(res.code === 200 ){
 					log.info("Got basic information.");
-					$( "#server-name-usage" ).html(res.results.name);
+					$( "#server-name-usage" ).html(res.res.serverName);
 				}else{
 					log.info("Did not get 200 response code from server. Cannot get server information.");
 					$( "#server-name-usage" ).html("No Name");
@@ -36,5 +49,4 @@ $(document).ready(function(){
 		
 	
 	});
-
-});
+};

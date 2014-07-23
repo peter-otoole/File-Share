@@ -17,11 +17,15 @@ var collection = {
 	
 	requestDispatcher: function(reqSettings, callback){
 		
-		cLog.info("Out going request with options: %j", reqSettings);
+		try{
+			cLog.info("Out going request with options: "+ JSON.stringify(reqSettings) );
+		}catch(e){
+			cLog.errpr("Cannot log request settings.", 2);
+		}
 		
 		if( reqSettings ){
 		
-			if( reqSettings.method === "POST" ){
+			if( reqSettings.method === collection.POST ){
 				
 				$.ajax({
 					url: reqSettings.path,
@@ -29,27 +33,34 @@ var collection = {
 					data: {	data: reqSettings.data },
 					headers: { Authorization: collection.sessionKey },
 					dataType: "JSON",
-					async: reqSettings.async,
-					success: function (data, code) {
-					
-						cLog.info("Got response from server. Response is: %j", data);
-						callback(false, {results: data, code: code}, "Got response from POST.")
+					async: reqSettings.async
+				}).done(function(data){
+					try{
+						cLog.info("Got response from server. Response is: "+JSON.stringify(data)+", code: "+data.code);
+					}catch(e){
+						cLog.errpr("Cannot log response. Error: "+e, 2);
+						cLog.info("Got response from server. Response is: "+data+", code: "+data.code);
 					}
+					callback(false, {res: data, code: data.code}, "Got response from POST.");
 				});
 				
-			}else if( reqSettings.method === "GET" ){
+			}else if( reqSettings.method === collection.GET ){
 				
 				$.ajax({
 					url: reqSettings.path,
 					type: reqSettings.method,
 					headers: { Authorization: collection.sessionKey },
 					dataType: "JSON",
-					async: reqSettings.async,
-					success: function (data, code) {
-						
-						cLog.info("Got response from server. Response is: %j", data);
-						callback(false, {results: data, code: code}, "Got response from GET.")
+					async: reqSettings.async
+				}).done(function(data){
+					
+					try{
+						cLog.info("Got response from server. Response is: "+JSON.stringify(data)+", code: "+data.code);
+					}catch(e){
+						cLog.errpr("Cannot log response. Error: "+e, 2);
+						cLog.info("Got response from server. Response is: "+data+", code: "+data.code);
 					}
+					callback(false, {res: data, code: data.code}, "Got response from GET.");
 				});
 				
 			}else{
@@ -71,9 +82,13 @@ var collection = {
 				console.log(local + "() - " + message);
 			},
 			
-			error: function(message){
+			error: function(message, error){
 				
-				console.error(local + "() - " + message);
+				if(error){
+					console.error(local + "() - Error level: "+error+" - "+message);
+				}else{
+					console.error(local + "() - "+message);
+				}
 			}
 		};
 

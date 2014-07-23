@@ -1,0 +1,63 @@
+<div class="inner-container row">		
+	<form class="form-signin" role="form">
+		
+		<div class="inner-container jumbotron">
+			<p>It looks like this is the first time you are running the server, you need to configure the setting below. 
+			Afterwards, we will give you a chance to set up an administrator account.</p>
+		
+		</div>
+		
+		<div class="inner-container row">
+			
+			<div class="col-md-5">
+				<div class="inner-container row">	
+					<div class="col-md-4">
+						<h4>Server Name</h4>
+					</div>
+					<div class="col-md-8">
+						<input type="text" class="form-control" placeholder="Server Name" required="true" autofocus="true">
+					</div>
+				</div>
+				
+				<div class="inner-container row">	
+					<div class="col-md-12">
+						<h4>Do you want to store the logs in the database?</h4>
+					</div>
+				</div>
+				<div class="inner-container row">	
+					<div class="col-md-2"></div>
+					<div class="col-md-10">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" id="store-logs" value="store-logs"> Store Logs?
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-2">
+				<div class="vertical-line-separator"></div>
+			</div>
+			
+			<div class="col-md-5">
+				<div class="inner-container row">	
+					<div class="col-md-6">
+						<h4>Select the starting folders</h4>
+					</div>
+					<div class="col-md-6">
+						<input type="text" class="form-control" placeholder="Starting Folders" required="true" autofocus="true">
+					</div>	
+				</div>
+			</div>
+		</div>
+		
+		<div class="inner-container row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Save Configuration</button>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</form>				
+</div>
