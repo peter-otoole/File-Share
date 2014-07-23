@@ -1,3 +1,5 @@
 var main = require("./lib/main.js");
 
-main.init();
+var dbURL = "127.0.0.1:27017";
+
+main.init(dbURL);
